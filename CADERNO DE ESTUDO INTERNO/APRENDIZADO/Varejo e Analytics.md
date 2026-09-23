@@ -1,0 +1,1 @@
+Pesquisei referências de varejo e analytics de empresas como **McKinsey, Deloitte e Shopify**. O padrão é bem claro: empresas não olham apenas para "quanto vendeu". Elas cruzam **vendas + margem + estoque + clientes + produtos + comportamento** para descobrir _por que_ o resultado aconteceu e onde agir.

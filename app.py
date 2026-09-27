@@ -1,5 +1,6 @@
 import streamlit as st
 from services.produto_service import listar_produtos
+import os
 
 # ====================
 # LOJA KAIROS WATCH CO.
@@ -133,6 +134,11 @@ for indice, produto in enumerate(produtos):
 
     with colunas[indice % 4]:
 
+        caminho_imagem = f"imagens/{produto.id}.jpg"
+
+        if os.path.isfile(caminho_imagem):
+            st.image(caminho_imagem, use_container_width=True)
+
         st.markdown(
             f'''
             ### {produto.marca}
@@ -152,3 +158,7 @@ for indice, produto in enumerate(produtos):
             st.write("❌ Produto esgotado")
 
         st.divider()
+
+
+
+

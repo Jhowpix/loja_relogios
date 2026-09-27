@@ -1,9 +1,11 @@
 # ⌚ Kairos Watch Co.
+<br>
 Sistema de gestão e loja virtual de relógios desenvolvido como projeto de estudo e portfólio.
+<br>
 <br>
 <img width="1596" height="733" alt="image" src="https://github.com/user-attachments/assets/7470dad6-f715-4875-b59c-018b42c6e8f5" />
 <br>
-
+<br>
 O projeto simula o funcionamento de uma loja de relógios, permitindo trabalhar com:
 
 * Cadastro e consulta de clientes

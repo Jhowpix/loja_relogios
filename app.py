@@ -2,15 +2,26 @@ import streamlit as st
 from services.produto_service import listar_produtos
 import os
 
+st.markdown("""
+<style>
+    .stApp {
+        background-color: white;
+        color: black;
+    }
+
+    h1, h2, h3, h4, h5, h6, p, span, label {
+        color: black !important;
+    }
+</style>
+""", unsafe_allow_html=True)
+
 # ====================
 # LOJA KAIROS WATCH CO.
 # ====================
-
 st.set_page_config(
     page_title="Kairos Watch Co.",
     page_icon=" ⌚︎ ",
     layout="wide",
-
 )
 
 st.title(" ⌚︎ Kairos Watch Co.")

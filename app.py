@@ -5,12 +5,12 @@ import os
 st.markdown("""
 <style>
     .stApp {
-        background-color: white;
-        color: black;
+        background-color: black;
+        color: white;
     }
 
     h1, h2, h3, h4, h5, h6, p, span, label {
-        color: black !important;
+        color: white !important;
     }
 </style>
 """, unsafe_allow_html=True)
@@ -31,6 +31,9 @@ st.write("")
 
 produtos_originais = listar_produtos()
 produtos = produtos_originais.copy()
+
+if "carrinho" not in st.session_state:
+    st.session_state.carrinho = []
 
 st.write(f"#### São {len(produtos)} modelos de relógios disponíveis para você.")
 
@@ -58,6 +61,7 @@ marcas = sorted(set(produto.marca for produto in produtos_originais))
 # ====================
 # LABEL MARCA
 # ====================
+
 marca_selecionada = st.selectbox(
     "🏷️ Marca",
     ["Todas"] + marcas
@@ -74,6 +78,7 @@ categorias = sorted(set(produto.categoria for produto in produtos_originais))
 # ====================
 # LABEL CATEGORIA
 # ====================
+
 categoria_selecionada = st.selectbox(
     "🏷️ Categoria",
     ["Todas"] + categorias
@@ -89,6 +94,7 @@ if categoria_selecionada != "Todas":
 # ====================
 # LABEL FAIXA DE PREÇO
 # ====================
+
 preco_minimo = min (produto.preco for produto in produtos)
 preco_maximo = max (produto.preco for produto in produtos)
 
@@ -137,10 +143,13 @@ elif faixa_preco == "Acima de R$ 5.000":
 def formatar_preco(valor):
     return f"R$ {valor:,.2f}".replace(",", "X").replace(".", ",").replace("X", ".")
 
+
 # ====================
 # RELÓGIOS MOSTRUÁRIO
 # ====================
+
 colunas = st.columns(4)
+
 for indice, produto in enumerate(produtos):
 
     with colunas[indice % 4]:
@@ -151,25 +160,22 @@ for indice, produto in enumerate(produtos):
             st.image(caminho_imagem, use_container_width=True)
 
         st.markdown(
-            f'''
+            f"""
             ### {produto.marca}
-            **{produto.modelo}**\n 
-            **{formatar_preco(produto.preco)}**\n 
+            **{produto.modelo}**
+
+            **{formatar_preco(produto.preco)}**
+
             📦 Estoque: **{produto.estoque}**
-            '''
+            """
         )
 
-        if produto.estoque > 0:
-            st.button(
+        if st.button(
             "🛒 Comprar",
             key=f"comprar_{produto.id}",
-            use_container_width=True,
-        )
-        else:
-            st.write("❌ Produto esgotado")
-
-        st.divider()
-
-
+            use_container_width=True
+        ):
+            st.session_state.carrinho.append(produto)
+            st.success(f"{produto.modelo} adicionado ao carrinho!")
 
 

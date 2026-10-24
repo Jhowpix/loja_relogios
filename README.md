@@ -2,14 +2,9 @@
 <br>
 Sistema de gestão e loja virtual de relógios desenvolvido como projeto de estudo e portfólio.
 <br>
-<iframe 
-  width="560" 
-  height="315" 
-  src="[https://youtube.com](https://youtu.be/kTuBu52Fyek)" 
-  title="Reprodutor de vídeo do YouTube" 
-  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-  allowfullscreen>
-</iframe>
+
+ <a href=[https://youtube.com](https://youtu.be/kTuBu52Fyek)"<a/>
+
 <br>
 <img width="1596" height="733" alt="image" src="https://github.com/user-attachments/assets/7470dad6-f715-4875-b59c-018b42c6e8f5" />
 <br>
